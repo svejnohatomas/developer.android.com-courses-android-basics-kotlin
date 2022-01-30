@@ -2,7 +2,7 @@ package io.github.svejnohatomas.courses.android.basics.kotlin.diceroller
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -19,9 +19,16 @@ class MainActivity : AppCompatActivity() {
 
     fun rollDice() {
         val dice = Dice()
-        val resultTextView = findViewById<TextView>(R.id.textView_result)
+        val resultImageView = findViewById<ImageView>(R.id.imageView_dice)
 
-        resultTextView.text = dice.roll().toString()
+        when (dice.roll()) {
+            1 -> resultImageView.setImageResource(R.drawable.dice_1)
+            2 -> resultImageView.setImageResource(R.drawable.dice_2)
+            3 -> resultImageView.setImageResource(R.drawable.dice_3)
+            4 -> resultImageView.setImageResource(R.drawable.dice_4)
+            5 -> resultImageView.setImageResource(R.drawable.dice_5)
+            6 -> resultImageView.setImageResource(R.drawable.dice_6)
+        }
     }
 }
 
